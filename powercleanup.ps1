@@ -46,9 +46,7 @@ function Run-DiskCleanup {
 
 function Clear-RecycleBin {
     Write-Host "Clearing Recycle Bin..."
-    $shell = New-Object -ComObject Shell.Application
-    $recycleBin = $shell.Namespace('shell:::{645FF040-5081-101B-9F08-00AA002F954E}')
-    $recycleBin.Items() | ForEach-Object { $_.InvokeVerb("delete") }
+    Clear-RecycleBin -Force -ErrorAction SilentlyContinue
 }
 
 function Clear-BrowsingCache {
